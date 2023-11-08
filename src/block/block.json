@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cover-video/cover-video",
+	"version": "1.0.0",
+	"title": "Cover Video",
+	"category": "theme",
+	"description": "Cover Video Block",
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"attributes": {
+		"svg": {
+			"type": "string"
+		},
+		"isShowIcon": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "cover-video",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": ["file:./style-index.css", "cover-video-libs"],
+	"script": ["cover-video-libs"]
+}
