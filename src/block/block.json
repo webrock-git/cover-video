@@ -4,7 +4,7 @@
 	"name": "cover-video/cover-video",
 	"version": "1.0.0",
 	"title": "Cover Video",
-	"category": "theme",
+	"category": "text",
 	"description": "Cover Video Block",
 	"example": {
 		"attributes": {
@@ -29,5 +29,6 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": ["file:./style-index.css", "cover-video-libs"],
-	"script": ["cover-video-libs"]
+	"script": ["cover-video-libs"],
+	"viewScript": "file:./view.js"
 }

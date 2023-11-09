@@ -2,47 +2,30 @@ import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 import Settings from './settings';
 import classNames from 'classnames';
-import { useEffect, useRef } from '@wordpress/element';
+import poster from "./img/poster.jpg";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const blockProps = useBlockProps({
 		className: classNames('cover-video'),
 	});
-	const containerRef = useRef(null);
 
-	useEffect(() => {
-		const container = containerRef.current;
-		const delegate = ".cover-video-preview";
-		if (window.Fancybox && container) {
-			const fancybox = window.Fancybox.bind('[data-fancybox="gallery"]', {
-				// Your custom options
-			});
-			console.log(fancybox);
-			return () => {
-				window.Fancybox.unbind(container);
-				window.Fancybox.close();
-			};
-		}
-	});
 	return (
 		<>
 			<Settings attributes={attributes} setAttributes={setAttributes} clientId={clientId} />
 			<div {...blockProps}>
-				<div ref={containerRef}>
-					<a
-						data-fancybox="gallery"
-						data-src="https://lipsum.app/id/2/1024x768"
-						data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code"
-					>
-						<img src="https://lipsum.app/id/2/200x150" />
-					</a>
-					<a data-fancybox="gallery" data-src="https://lipsum.app/id/3/1024x768">
-						<img src="https://lipsum.app/id/3/200x150" />
-					</a>
-
-					<a data-fancybox="gallery" data-src="https://lipsum.app/id/4/1024x768">
-						<img src="https://lipsum.app/id/4/200x150" />
-					</a>
+				<div className="cover-video-content" style={{ backgroundImage: `url(${poster})` }}>
+					<div className="cover-video-content-wrapper">
+						<button className="cover-video-popup-btn">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 72 72">
+								<circle cx="36" cy="36" r="35" fill="#000" fillOpacity=".7" stroke="#fff" strokeWidth="2" />
+								<path fill="#fff" d="M49 34.268c1.333.77 1.333 2.694 0 3.464L31 48.124c-1.333.77-3-.192-3-1.732V25.608c0-1.54 1.667-2.502 3-1.732l18 10.392Z" />
+							</svg>
+						</button>
+						<div className="cover-video-text-box">
+							<h3 className="cover-video-title">Panther Paradise</h3>
+							<p className="cover-video-description">Kabini Photo Tour</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
