@@ -3,17 +3,20 @@ import './editor.scss';
 import Settings from './settings';
 import classNames from 'classnames';
 import poster from "./img/poster.jpg";
+import { RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const blockProps = useBlockProps({
 		className: classNames('cover-video'),
 	});
 
+	const cover = attributes?.coverImage?.url ? attributes?.coverImage?.url : poster;
+
 	return (
 		<>
 			<Settings attributes={attributes} setAttributes={setAttributes} clientId={clientId} />
 			<div {...blockProps}>
-				<div className="cover-video-content" style={{ backgroundImage: `url(${poster})` }}>
+				<div className="cover-video-content" style={{ backgroundImage: `url(${cover})` }}>
 					<div className="cover-video-content-wrapper">
 						<button className="cover-video-popup-btn">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 72 72">
@@ -22,8 +25,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							</svg>
 						</button>
 						<div className="cover-video-text-box">
-							<h3 className="cover-video-title">Panther Paradise</h3>
-							<p className="cover-video-description">Kabini Photo Tour</p>
+							<RichText 
+								tagName='h3'
+								className='cover-video-title'
+								value={attributes?.title}
+								onChange={(value) => setAttributes({ title: value })}
+								placeholder='Write Title'
+							/>
+							<RichText 
+								tagName='p'
+								className='cover-video-description'
+								value={attributes?.subtitle}
+								onChange={(value) => setAttributes({ subtitle: value })}
+								placeholder='Write Sub Title'
+							/>
 						</div>
 					</div>
 				</div>

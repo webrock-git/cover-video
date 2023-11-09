@@ -1,3 +1,17 @@
+@mixin responsive($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+}
+
 .wp-block-cover-video-cover-video {
     * {
         box-sizing: border-box;
@@ -8,12 +22,16 @@
     .cover-video-content {
         position: relative;
         width: 100%;
-        min-height: 700px;
+        min-height: 720px;
         height: 100%;
         background-position: center;
         background-size: cover;
         display: flex;
-        align-items: end;
+        align-items: flex-end;
+
+        @include responsive(tablet) {
+            min-height: 100vh;
+        }
 
     .cover-video-popup-btn {
         width: 72px;
@@ -46,6 +64,10 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+
+            @include responsive(tablet) {
+                font-size: 24px;
+            }
         }
 
         .cover-video-description {
@@ -55,6 +77,10 @@
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+
+            @include responsive(tablet) {
+                font-size: 16px;
+            }
         }
     }
 }

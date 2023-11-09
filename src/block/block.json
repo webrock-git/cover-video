@@ -12,12 +12,20 @@
 		}
 	},
 	"attributes": {
-		"svg": {
-			"type": "string"
+		"coverImage": {
+			"type": "object"
 		},
-		"isShowIcon": {
-			"type": "boolean",
-			"default": false
+		"url": {
+			"type": "string",
+			"default": "https://www.youtube.com/watch?v=j-FCwkXMfzY"
+		},
+		"title": {
+			"type": "string",
+			"default": "Panther Paradise"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Kabini Photo Tour"
 		}
 	},
 	"supports": {
@@ -28,7 +36,7 @@
 	"textdomain": "cover-video",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": ["file:./style-index.css", "cover-video-libs"],
+	"style": ["file:./style-index.css", "cover-video-libs", "google-fonts"],
 	"script": ["cover-video-libs"],
 	"viewScript": "file:./view.js"
 }
