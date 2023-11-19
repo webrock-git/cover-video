@@ -20,68 +20,68 @@
     }
 
     .cover-video-content {
-        position: relative;
         width: 100%;
-        min-height: 720px;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
+        height: auto;
         display: flex;
+        position: relative;
+        aspect-ratio: 16/9;
         align-items: flex-end;
+        background-size: cover;
+        background-position: center;
 
-        @include responsive(tablet) {
-            min-height: 100vh;
+        .cover-video-popup-btn {
+            width: 72px;
+            height: 72px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            svg {
+                width: inherit;
+                height: inherit;
+            }
         }
 
-    .cover-video-popup-btn {
-        width: 72px;
-        height: 72px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-
-        svg {
-            width: inherit;
-            height: inherit;
+        .cover-video-content-wrapper {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            @include responsive(phone) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
-    }
 
-    .cover-video-content-wrapper {
-        padding: 24px;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-    }
+        .cover-video-text-box {
+            display: flex;
+            flex-direction: column;
 
-    .cover-video-text-box {
-        display: flex;
-        flex-direction: column;
+            .cover-video-title {
+                color: #FFF;
+                font-family: "Figtree", sans-serif;
+                font-size: 36px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
 
-        .cover-video-title {
-            color: #FFF;
-            font-family: "Figtree", sans-serif;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+                @include responsive(tablet) {
+                    font-size: 24px;
+                }
+            }
 
-            @include responsive(tablet) {
+            .cover-video-description {
+                color: #FFF;
+                font-family: "Figtree", sans-serif;
                 font-size: 24px;
-            }
-        }
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
 
-        .cover-video-description {
-            color: #FFF;
-            font-family: "Figtree", sans-serif;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-
-            @include responsive(tablet) {
-                font-size: 16px;
+                @include responsive(tablet) {
+                    font-size: 16px;
+                }
             }
         }
     }
-}
 }
